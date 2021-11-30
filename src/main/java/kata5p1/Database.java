@@ -48,6 +48,26 @@ public class Database {
         }
     }
     
+    public void createNewTable(){
+        Connection conn = null;
+        String sql = "CREATE TABLE \"EMAIL\" (\n" +
+                        "\"Id\"	INTEGER,\n" +
+                        "\"Name\"	TEXT NOT NULL,\n" +
+                        "PRIMARY KEY(\"Id\" AUTOINCREMENT)\n" +
+                                                ");";
+        
+        conn = this.connect();
+        Statement stmt;
+        try {
+            stmt = (Statement) conn.createStatement();
+            stmt.execute(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (java.lang.Exception ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void Query(){
         Connection conn = null;
         String sql = "SELECT * FROM PEOPLE";
