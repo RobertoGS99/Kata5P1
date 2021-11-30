@@ -1,5 +1,5 @@
 
-package kata5p1;
+package View;
 
 
 import java.io.BufferedReader;

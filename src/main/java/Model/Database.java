@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kata5p1;
+package Model;
 
 import java.sql.Statement;
 import java.sql.Connection;

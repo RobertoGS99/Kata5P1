@@ -1,5 +1,7 @@
 package kata5p1;
 
+import View.MailListReader;
+import Model.Database;
 import java.util.List;
 
 public class Kata5p1 {
