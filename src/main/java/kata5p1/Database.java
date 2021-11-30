@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -84,6 +85,24 @@ public class Database {
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void insertData (List<String> email){
+        Connection conn = null;
+        String sql = "INSERT INTO EMAIL(Name) VALUES (?)";
+        try {
+            conn = this.connect();
+            for (String string : email) {
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, string);
+                pstmt.executeUpdate();
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            close(conn);
         }
     }
 }
